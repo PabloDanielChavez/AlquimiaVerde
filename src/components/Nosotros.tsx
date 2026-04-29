@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import style_nosotros from "@/styles/sections/Nosotros.module.scss";
 import { BsClockHistory, BsLeaf } from "react-icons/bs";
 import LogoSinFondo from "./subComponents/logoSinFondo";
+import Image from "next/image";
 
 export default function Nosotros() {
     return (
@@ -35,7 +36,14 @@ export default function Nosotros() {
                                 <span>Nosotros</span>
                             </div>
                             <div className={style_nosotros.nosotros_imagen_box}>
-                                <img src="/img/fondo/nosotros.jpg" alt="Nosotros Alquimia Verde" className={style_nosotros.nosotros_imagen} />
+                                <Image 
+                                    className={style_nosotros.nosotros_imagen}
+                                    src={"/img/fondo/nosotros.jpg"}
+                                    alt={"Nosotros Alquimia Verde"}
+                                    width={200}
+                                    height={200}
+                                    sizes="200px"
+                                />
                             </div>
                             <p className={style_nosotros.nosotros_parrafo_im}>
                                 Forjando naturaleza en cada segundo.

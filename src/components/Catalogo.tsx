@@ -1,6 +1,7 @@
 "use client";
 
 import style_catalogo from "@/styles/sections/Catalogo.module.scss";
+import Image from "next/image";
 import Link from "next/link";
 import { IoLogoWhatsapp } from "react-icons/io";
 
@@ -23,7 +24,14 @@ export default function Catalogo() {
                     {productos.map((prod) => (
                         <article key={prod.id} className={style_catalogo.catalogo_card}>
                             <div className={style_catalogo.catalogo_imagen_container}>
-                                <img src={prod.img} alt={prod.nombre} className={style_catalogo.catalogo_img} />
+                                <Image 
+                                    className={style_catalogo.catalogo_img}
+                                    src={prod.img}
+                                    alt={prod.nombre}
+                                    width={200}
+                                    height={200}
+                                    sizes="200px"
+                                />
                             </div>
                             <div className={style_catalogo.catalogo_info}>
                                 <h3 className={style_catalogo.catalogo_titulo}>{prod.nombre}</h3>
