@@ -1,0 +1,15 @@
+
+@use "./base/global.module.scss";
+@use "./base/mixins.module.scss";
+@use "./base/normalice.scss";
+@use "./base/variables.module.scss";
+
+
+
+@use "./sections/Header.module.scss";
+@use "./sections/Bienvenida.module.scss";
+@use "./sections/Servicio.module.scss";
+@use "./sections/Catalogo.module.scss";
+@use "./sections/Nosotros.module.scss";
+@use "./sections/Producto.module.scss";
+@use "./sections/Footer.module.scss";

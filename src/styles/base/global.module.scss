@@ -1,0 +1,39 @@
+@use '../base/variables.module.scss' as v;
+@use '../base/mixins.module.scss' as m;
+
+.form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    margin-top: 0rem;
+    width: 100%;
+
+    &__Input {
+        box-shadow: none;
+        background-color: unset;
+        height: 2rem;
+        width: 90%;
+        min-width: 90%;
+        max-width: 90%;
+        padding: .3rem .7rem;
+        border: none;
+        border-bottom: 2px solid v.$verdePrimario;
+        border-radius: 2px;
+        // background-color: v.$colorFondoBody;
+        transition: background-color .2s ease-in-out, border-color .2s ease-in-out;
+        outline: none;
+        font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        font-size: 1.2rem;
+        font-weight: 100;
+        &:focus {
+            border-color: v.$verdePrimario;
+        }
+    }
+
+    textarea {
+        height: 10rem;
+        min-height: 10rem;
+        max-height: 20rem;
+    }
+}

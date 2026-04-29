@@ -1,0 +1,200 @@
+@use '../base/variables.module.scss' as v;
+@use '../base/mixins.module.scss' as m;
+
+.producto {
+    width: 100%;
+    background-color: v.$verdeOscuro; //
+    color: v.$blancoHueso;
+    padding: 4rem 1rem;
+
+    @include m.tablet {
+        padding: 8rem 2rem;
+    }
+
+    .producto_layout {
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+
+    .hero_section {
+        display: flex;
+        flex-direction: column;
+        gap: 3rem;
+
+        @include m.tablet {
+            flex-direction: row;
+            align-items: center;
+        }
+    }
+
+    .galeria_box {
+        flex: 1;
+        display: flex;
+        justify-content: center;
+        
+        .domo_exhibicion {
+            background: radial-gradient(circle, rgba(v.$verdeAgua, 0.1) 0%, transparent 70%);
+            border-radius: 50%;
+            padding: 2rem;
+
+            .imagen_principal {
+                max-width: 100%;
+                height: auto;
+                filter: drop-shadow(0 20px 30px rgba(0,0,0,0.5));
+                transition: transform 0.5s ease;
+
+                &:hover {
+                    transform: scale(1.05);
+                }
+            }
+        }
+    }
+
+    .info_principal {
+        flex: 1;
+
+        .sku {
+            color: v.$verdeAgua;
+            font-size: 0.8rem;
+            letter-spacing: 2px;
+            margin-bottom: 1rem;
+        }
+
+        .titulo {
+            font-family: v.$fuenteTitulo;
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            line-height: 1.1;
+
+            .titulo_italic {
+                font-family: v.$fuenteElegante;
+                font-style: italic;
+                font-weight: 300;
+            }
+        }
+
+        .precio {
+            font-size: 2rem;
+            color: v.$blancoHueso;
+            margin-bottom: 2.5rem;
+            font-weight: 300;
+        }
+
+        .detalles_rapidos {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+            margin-bottom: 3rem;
+
+            .dato {
+                display: flex;
+                align-items: center;
+                gap: 1rem;
+                color: v.$grisCeniza;
+
+                svg {
+                    color: v.$verdeAgua;
+                    font-size: 1.5rem;
+                }
+
+                strong {
+                    display: block;
+                    font-size: 0.7rem;
+                    color: v.$verdeAgua;
+                    letter-spacing: 1px;
+                }
+
+                span {
+                    font-size: 0.9rem;
+                    color: v.$blancoHueso;
+                }
+            }
+        }
+    }
+
+    .acciones {
+        display: flex;
+        gap: 1.5rem;
+        flex-wrap: wrap;
+
+        .selector_cantidad {
+            display: flex;
+            align-items: center;
+            border: 1px solid rgba(v.$blancoHueso, 0.2);
+            border-radius: 30px;
+            overflow: hidden;
+
+            button {
+                background: transparent;
+                border: none;
+                color: v.$blancoHueso;
+                padding: 1rem 1.5rem;
+                cursor: pointer;
+                &:hover { background: rgba(v.$verdeAgua, 0.1); }
+            }
+
+            span {
+                padding: 0 1rem;
+                font-family: v.$fuenteTitulo;
+            }
+        }
+
+        .btn_comprar {
+            flex: 1;
+            background-color: v.$verdeAgua;
+            color: v.$verdeOscuro;
+            border: none;
+            padding: 1rem 2rem;
+            border-radius: 30px;
+            font-weight: 700;
+            letter-spacing: 1px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+
+            &:hover {
+                transform: scale(1.02);
+                box-shadow: 0 10px 20px rgba(v.$verdeAgua, 0.2);
+            }
+        }
+    }
+
+    .separador {
+        border: none;
+        border-top: 1px solid rgba(v.$blancoHueso, 0.1);
+        margin: 4rem 0;
+    }
+
+    .detalles_tecnicos {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 3rem;
+
+        @include m.tablet {
+            grid-template-columns: 1.5fr 1fr;
+        }
+
+        h3 {
+            font-family: v.$fuenteTitulo;
+            color: v.$verdeAgua;
+            margin-bottom: 1.5rem;
+        }
+
+        p {
+            line-height: 1.8;
+            color: v.$grisCeniza;
+        }
+
+        .lista_specs {
+            list-style: none;
+            li {
+                padding: 0.8rem 0;
+                border-bottom: 1px solid rgba(v.$blancoHueso, 0.05);
+                display: flex;
+                justify-content: space-between;
+                font-size: 0.9rem;
+
+                strong { color: v.$blancoHueso; }
+            }
+        }
+    }
+}

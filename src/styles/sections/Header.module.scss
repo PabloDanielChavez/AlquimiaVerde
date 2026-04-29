@@ -1,0 +1,73 @@
+@use '../base/variables.module.scss' as v;
+@use '../base/mixins.module.scss' as m;
+
+.header {
+    width: 100%;
+    padding: 1rem 2rem;
+    background-color: rgba(0, 0, 0, 0.5); // Efecto traslúcido de la imagen
+    backdrop-filter: blur(5px);
+    position: fixed;
+    top: 0;
+    z-index: 100;
+
+    &_layout {
+        max-width: 1200px;
+        margin: 0 auto;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    &_h2 {
+        color: white;
+        letter-spacing: 2px;
+        font-weight: bold;
+    }
+
+    &_list {
+        display: flex;
+        gap: 2rem;
+        list-style: none;
+    }
+
+    &_link {
+        color: #ddd;
+        text-decoration: none;
+        font-size: 0.9rem;
+        transition: color 0.3s;
+
+        &:hover {
+            color: white;
+        }
+    }
+
+    &_box_actions {
+        display: flex;
+        align-items: center;
+        gap: 1.5rem;
+        color: white;
+        font-size: 0.9rem;
+
+        
+    }
+    &_btn_cart {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        padding: 0.5rem 1.2rem;
+        border-radius: 20px;
+        border: 1px solid rgba(255, 255, 255, 0.3);
+        background: rgba(255, 255, 255, 0.1);
+        color: white;
+        cursor: pointer;
+        transition: background 0.3s;
+        text-decoration: none;
+
+        &:hover {
+            background: rgba(255, 255, 255, 0.2);
+        }
+    }
+    &_icono_cart {
+        font-size: 2.9rem;
+    }
+}

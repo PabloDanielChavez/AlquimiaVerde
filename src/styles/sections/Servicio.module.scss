@@ -1,0 +1,98 @@
+@use '../base/variables.module.scss' as v;
+@use '../base/mixins.module.scss' as m;
+
+.servicio_section {
+    width: 100%;
+    padding: 4rem 1rem;
+    // Fondo sutilmente diferente para destacar la tarjeta
+    background-color: v.$verdeOscuro;
+
+    @include m.tablet {
+        padding: 6rem 2rem;
+    }
+
+    .servicio_layout {
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+
+    .servicio_container_principal {
+        background-color: v.$verdeBosque;
+        border-radius: 40px; // Bordes muy redondeados como la imagen
+        display: flex;
+        flex-direction: column;
+        overflow: hidden;
+        border: 1px solid rgba(v.$verdeAgua, 0.1);
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+
+        @include m.tablet {
+            flex-direction: row; // En desktop se alinean horizontalmente
+            padding: 2rem 0;
+        }
+    }
+
+    .servicio_item {
+        flex: 1;
+        padding: 2.5rem;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        position: relative;
+        transition: background 0.3s ease;
+
+        &:hover {
+            background-color: rgba(v.$verdeAgua, 0.05);
+        }
+
+        // Líneas divisorias (solo en desktop y entre items)
+        @include m.tablet {
+            &:not(:last-child)::after {
+                content: '';
+                position: absolute;
+                right: 0;
+                top: 20%;
+                height: 60%;
+                width: 1px;
+                background: linear-gradient(to bottom, transparent, rgba(v.$verdeAgua, 0.2), transparent);
+            }
+        }
+
+        // Línea divisoria en móvil
+        &:not(:last-child) {
+            border-bottom: 1px solid rgba(v.$verdeAgua, 0.1);
+            @include m.tablet {
+                border-bottom: none;
+            }
+        }
+    }
+
+    .servicio_icono_box {
+        font-size: 2.5rem;
+        color: v.$verdeAgua;
+        margin-bottom: 1.5rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        
+        // Efecto de resplandor sutil tras el icono
+        filter: drop-shadow(0 0 10px rgba(v.$verdeAgua, 0.3));
+    }
+
+    .servicio_contenido {
+        .servicio_heading {
+            font-family: v.$fuenteTitulo;
+            color: v.$blancoHueso;
+            font-size: 1.25rem;
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+
+        .servicio_texto {
+            font-family: v.$fuenteCuerpo;
+            color: v.$grisCeniza;
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+    }
+}

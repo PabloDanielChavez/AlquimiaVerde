@@ -1,0 +1,175 @@
+@use '../base/variables.module.scss' as v;
+@use '../base/mixins.module.scss' as m;
+
+.bienvenida {
+    width: 100%;
+    /* Suponiendo que usas Sass y quieres que la imagen se vea de fondo */
+    background-image: radial-gradient( circle at center, rgba(v.$verdeBosque, 0.95) 0%, rgba(v.$verdeOscuro, 0.95) 100%), url("/img/fondo/fondo-bienvenida2.jpg");
+
+/* Ajustes extras para que la imagen luzca bien */
+    background-size: cover;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    color: v.$blancoHueso; 
+    padding: 4rem 1rem; // Padding menor en móvil
+    position: relative;
+    overflow: hidden;
+
+    // Escalamos el padding en tablets y superiores
+    @include m.tablet {
+        padding: 6rem 2rem;
+    }
+
+    .bienvenida_layout {
+        max-width: 1200px;
+        height: 80dvh;
+        margin: 0 auto;
+        display: flex;
+        flex-direction: column-reverse; // Imagen arriba en móvil, texto abajo
+        align-items: center;
+        gap: 2rem;
+
+        @include m.tablet {    
+            display: grid;
+            grid-template-columns: 3fr 1fr;
+        }
+    }
+
+
+    .bienvenida_header_box_informacion {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        gap: 1.2rem;
+        text-align: center; // Centrado en móvil
+
+        @include m.tablet {
+            text-align: left; // Alineado a la izquierda en desktop
+            gap: 1.5rem;
+        }
+    }
+
+    .bienvenida_header_h1_titulo {
+        font-family: v.$fuenteTitulo;
+        font-size: 2.5rem; // Más pequeño en móvil
+        line-height: 1.1;
+        font-weight: 700;
+
+        @include m.tablet {
+            font-size: 3.5rem;
+        }
+
+        .bienvenida_header_span_tag {
+            display: block;
+            font-family: v.$fuenteElegante;
+            font-weight: 300;
+            font-size: 1.5rem;
+            color: v.$verdeAgua;
+
+            @include m.tablet {
+                font-size: 2rem;
+            }
+        }
+    }
+
+    .bienvenida_header_span_tag {
+        font-family: v.$fuentePrincipal;
+        font-size: 0.9rem;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        color: v.$verdeEsmeralda;
+    }
+
+    .bienvenida_header_p_descripcion {
+        font-family: v.$fuenteCuerpo;
+        font-size: 1rem;
+        line-height: 1.6;
+        color: v.$grisCeniza;
+        max-width: 500px;
+        margin: 0 auto; // Centrar párrafo en móvil
+
+        @include m.tablet {
+            font-size: 1.1rem;
+            margin: 0; // Quitar centrado en desktop
+        }
+    }
+
+    .bienvenida_header_box_btn {
+        display: flex;
+        flex-direction: column; // Botones uno encima del otro en móvil
+        gap: 1rem;
+        margin-top: 1rem;
+
+        @include m.telefonoXL {
+            flex-direction: row; // Botones a la par en pantallas un poco más grandes
+            justify-content: center;
+        }
+
+        @include m.tablet {
+            justify-content: flex-start;
+        }
+    }
+
+    .bienvenida_header_btn {
+        text-decoration: none;
+        padding: 0.8rem 2rem;
+        border-radius: 8px;
+        font-weight: 600;
+        transition: all 0.3s ease;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        &:first-child {
+            background-color: v.$verdePrimario;
+            color: white;
+            &:hover { background-color: v.$verdeBosque; }
+        }
+
+        &:last-child {
+            background-color: transparent;
+            color: v.$verdeAgua;
+            border: 1px solid v.$verdeAgua;
+            &:hover { background-color: rgba(v.$verdeAgua, 0.1); }
+        }
+    }
+
+    .circulo_fondo {
+        position: relative; // Necesario para posicionar el logo encima
+        width: 300px;       // Ajusta al tamaño que necesites
+        height: 300px;      // Debe ser igual al width
+        border-radius: 50%; // Esto crea el círculo
+        overflow: hidden;   // Recorta la imagen de fondo
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        max-width: 300px;
+        object-fit: contain;
+        animation: float 6s ease-in-out infinite; 
+    }
+
+    .bienvenida_header_imagen_fondo {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover; // Asegura que la imagen de fondo cubra el círculo sin deformarse
+        z-index: 1;        // Capa inferior
+    }
+
+    .logo_empresa {
+        position: relative;
+        z-index: 2;        // Capa superior
+        width: 60%;        // Ajusta el tamaño del logo respecto al círculo
+        height: auto;      // Mantiene la proporción del PNG
+        object-fit: contain;
+    }
+}
+
+@keyframes float {
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(-15px); }
+    100% { transform: translateY(0px); }
+}
